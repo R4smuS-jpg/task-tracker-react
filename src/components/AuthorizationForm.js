@@ -5,19 +5,28 @@ import Button from './Button';
 
 
 const Form = styled.form`
-  padding-top: 200px;
-  padding-left: 35vw;
+  padding-top: 270px;
+  padding-left: 36vw;
 `
 
 function AuthorizationForm(props) {
+  function onChangeLogin(event) {
+    console.log("Login input: " + event.target.value);
+  }
+  
+  function onChangePassword(event) {
+    console.log("Password input: " + event.target.value);
+  }
+
+  function onBlurLogin(event) {
+    event.target.value = event.target.value.trim();
+  }
+
   return (
     <Form action={props.action} method={props.method} id="authForm">
-      <p><InputField fieldName="Login" id="login" type="text" placeholder="Email or nickname"></InputField></p>
-      <br></br>
-      <p><InputField fieldName="Password" id="password" type="password" placeholder="Password"></InputField></p>
-      <br></br>
-      <br></br>
-      <p><Button form="authForm" type="submit" buttonText="Log In"></Button></p>
+      <p><InputField fieldName="Login" id="login" type="text" placeholder="Email or nickname" onChange={onChangeLogin} onBlur={onBlurLogin}></InputField></p>
+      <p><InputField fieldName="Password" id="password" type="password" placeholder="Password" onChange={onChangePassword}></InputField></p>
+      <Button form="authForm" type="submit" buttonText="Log In"></Button>
     </Form>
   );
 }

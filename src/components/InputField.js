@@ -10,16 +10,14 @@ const Input = styled.input`
 
   display: block;
 `
-
 const Label = styled.label`
   font-size: 36px;
-
 `
 
 function InputField(props) {
   return (
     <Label for={props.id}>{props.fieldName}
-      <Input type={props.type} id={props.id} placeholder={props.placeholder}></Input>
+      <Input type={props.type} id={props.id} placeholder={props.placeholder} onChange={props.onChange} onBlur={props.onBlur}></Input>
     </Label>
   );
 }
