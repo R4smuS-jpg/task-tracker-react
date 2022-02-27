@@ -10,14 +10,17 @@ const Input = styled.input`
 
   display: block;
 `
+
 const Label = styled.label`
   font-size: 36px;
 `
 
 function InputField(props) {
+  const {type, id, placeholder, onChange, onBlur, children} = props;
+
   return (
-    <Label for={props.id}>{props.fieldName}
-      <Input type={props.type} id={props.id} placeholder={props.placeholder} onChange={props.onChange} onBlur={props.onBlur}></Input>
+    <Label hmtlFor={id}>{children}
+      <Input type={type} id={id} placeholder={placeholder} onChange={onChange} onBlur={onBlur}/>
     </Label>
   );
 }
