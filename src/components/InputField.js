@@ -15,9 +15,7 @@ const Label = styled.label`
   font-size: 36px;
 `
 
-function InputField(props) {
-  const {type, id, placeholder, onChange, onBlur, children} = props;
-
+function InputField({type, id, placeholder, onChange, onBlur, children}) {
   return (
     <Label hmtlFor={id}>{children}
       <Input type={type} id={id} placeholder={placeholder} onChange={onChange} onBlur={onBlur}/>

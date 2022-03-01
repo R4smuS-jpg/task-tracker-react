@@ -19,7 +19,7 @@ const InputFieldWrapper = styled.div`
   margin-bottom: 10px;
 `
 
-function AuthorizationForm(props) {
+function AuthorizationForm({action, method}) {
   function onChangeLogin(event) {
     console.log("Login input: " + event.target.value);
   }
@@ -32,7 +32,6 @@ function AuthorizationForm(props) {
     event.target.value = event.target.value.trim();
   }
 
-  const {action, method} = props;
   return (
     <form action={action} method={method} id="authForm">
       <InputFieldWrapper>
