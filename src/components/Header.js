@@ -17,10 +17,10 @@ const HeaderTitle = styled.h1`
   margin: 0em 1em;
 `
 
-function Header() {
+function Header({children}) {
   return (  
     <HeaderLogin>
-      <HeaderTitle>Login Page</HeaderTitle>
+      <HeaderTitle>{children}</HeaderTitle>
       <HeaderTitle>Task-Tracker</HeaderTitle>
     </HeaderLogin>
   );
