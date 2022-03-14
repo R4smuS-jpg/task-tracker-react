@@ -14,8 +14,9 @@ const SignUpWrapper = styled.div`
 `
 
 const SignUpFormWrapper = styled.div`
-  padding-top: 210px;
+  padding-top: 180px;
   padding-left: 36vw;
+  padding-right: 38vw;
 `
 
 function SignUp() {

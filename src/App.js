@@ -3,8 +3,8 @@ import SignUp from "./pages/SignUp";
 
 function App() {
 	return (
-			// <SignUp></SignUp>
-			<SignIn></SignIn>
+			<SignUp></SignUp>
+			// <SignIn></SignIn>
 	);
 }
 

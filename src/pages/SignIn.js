@@ -16,6 +16,7 @@ const SignInWrapper = styled.div`
 const SignInFormWrapper = styled.div`
   padding-top: 270px;
   padding-left: 36vw;
+  padding-right: 38vw;
 `
 
 function SignIn() { 
