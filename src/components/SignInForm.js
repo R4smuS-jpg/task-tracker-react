@@ -8,8 +8,8 @@ import validatePassword from '../validators/passwordValidator.js'
 const SubmitButton = styled(Button)`
   margin-top: 10px;
 
-  width: 160px;
-  height: 48px;
+  width: 4.5em;
+  height: 1.4em;
 
   color: #484f4f;
   background-color: white;
@@ -30,8 +30,16 @@ function SignInForm({action, method}) {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const [buttonState, disableButton] = useState("false");
+
   function handleChangeEmail(event) {
     setEmailError(validateEmail(event.target.value));
+    
+    if (emailError != "") {
+      disableButton("true");
+    } else {
+      disableButton("false")
+    }
   }
 
   function handleChangePassword(event) {
@@ -45,7 +53,7 @@ function SignInForm({action, method}) {
   return (
     <form action={action} method={method} id="signInForm">
       <InputFieldWrap>
-        <InputField id="login" type="text" placeholder="Email" onBlur={handleBlur} onChange={handleChangeEmail}>Login</InputField>
+        <InputField id="email" type="email" placeholder="Email" onBlur={handleBlur} onChange={handleChangeEmail}>Email</InputField>
         <P>{emailError}</P>
       </InputFieldWrap>
 
@@ -54,7 +62,7 @@ function SignInForm({action, method}) {
         <P>{passwordError}</P>
       </InputFieldWrap>
 
-      <SubmitButton form="signInForm" className="Button" type="submit">Sign In</SubmitButton>
+      <SubmitButton  form="signInForm" className="Button" type="submit">Sign In</SubmitButton>
     </form>
   );
 }

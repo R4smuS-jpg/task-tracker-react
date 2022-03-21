@@ -5,12 +5,13 @@ import styled from 'styled-components'
 import validateEmail from '../validators/emailValidator.js'
 import validatePassword from '../validators/passwordValidator.js'
 import validateFieldLength from '../validators/minLengthValidator.js'
+import validateAvatarUpload from '../validators/avatarUploadValidator.js'
 
 const SubmitButton = styled(Button)`
   margin-top: 20px;
 
-  width: 160px;
-  height: 48px;
+  width: 4.5em;
+  height: 1.4em;
 
   color: #484f4f;
   background-color: white;
@@ -47,14 +48,16 @@ function SignUpForm({action, method}) {
   const [nicknameLengthError, setNicknameLengthError] = useState("");
   const [firstNameLengthError, setFirstNameLengthError] = useState("");
   const [lastNameLengthError, setLastNameLengthError] = useState("");
+  const [avatarUploadError, setAvatarUploadError] = useState("");
+
 
 
   function handleChangeEmail(event) {
-    setEmailError(validateEmail(event.target.value))
+    setEmailError(validateEmail(event.target.value));
   }
 
   function handleChangePassword(event) {
-    setPasswordError(validatePassword(event.target.value))
+    setPasswordError(validatePassword(event.target.value));
   }
 
   function handleChangeNicknameLength(event) {
@@ -67,6 +70,10 @@ function SignUpForm({action, method}) {
 
   function handleChangeLastNameLength(event) {
     setLastNameLengthError(validateFieldLength("Last name", event.target.value));
+  }
+
+  function handleChangeFile(event) {
+    setAvatarUploadError(validateAvatarUpload(event.target.value));
   }
 
   function handleBlur(event) {
@@ -101,7 +108,8 @@ function SignUpForm({action, method}) {
       </InputFieldWrap>
 
       <AddAvatarButtonWrap>
-        <AddAvatarButton className="InputField" id="avatar" type="file" accept="image/png, image/jpeg">Add avatar</AddAvatarButton>
+        <AddAvatarButton className="InputField" id="avatar" type="file" onChange={handleChangeFile}>Add avatar</AddAvatarButton>
+        <P>{avatarUploadError}</P>
       </AddAvatarButtonWrap>
 
       <SubmitButton className="Button" form="signUpForm" type="submit">Sign Up</SubmitButton>

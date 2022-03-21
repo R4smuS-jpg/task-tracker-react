@@ -10,9 +10,9 @@ const DefaultButton = styled.button`
   font: inherit;
 `
 
-function Button({form, type, img, onClick, children, className}) {
+function Button({form, type, img, onClick, children, className, disabled}) {
   return (
-    <DefaultButton className={className} form={form} type={type} img={img} onClick={onClick}>{children}</DefaultButton>
+    <DefaultButton className={className} disabled={disabled} form={form} type={type} img={img} onClick={onClick}>{children}</DefaultButton>
   );
 }
 

@@ -1,29 +1,56 @@
 import styled from 'styled-components'
 import React from 'react';
+import { Link } from "react-router-dom";
 
-const HeaderLogin = styled.header`
+const StyledHeader = styled.header`
   position: fixed;
   display: flex;
   justify-content: space-between;
 
   background-color: #379683;
   
-  padding: 1.5em 0em;
+  padding-top: 1.7em;
+  padding-bottom: 1.7em;
+
   min-width: 100vw;
+`
+
+const HeaderTitleWrap = styled.div`
+  display: flex;
+`
+
+const AnotherHeaderTitle = styled.h1`
+  font-size: 3em;
 `
 
 const HeaderTitle = styled.h1`
   font-size: 3em;
 
-  margin: 0em 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+`
+
+const StyledLink = styled(Link)`
+  color: inherit;
 `
 
 function Header({children}) {
   return (  
-    <HeaderLogin>
-      <HeaderTitle>{children}</HeaderTitle>
-      <HeaderTitle>Task-Tracker</HeaderTitle>
-    </HeaderLogin>
+    <StyledHeader>
+      <HeaderTitleWrap>
+        <HeaderTitle>
+          <StyledLink to="/sign-in">Sign In</StyledLink>
+        </HeaderTitle>
+
+        <AnotherHeaderTitle>
+          <StyledLink to="/sign-up">Sign Up</StyledLink>
+        </AnotherHeaderTitle>
+      </HeaderTitleWrap>
+      
+      <HeaderTitle>
+        <StyledLink to="/">Task-Tracker</StyledLink>
+      </HeaderTitle>
+    </StyledHeader>
   );
 }
 

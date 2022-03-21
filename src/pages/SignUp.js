@@ -10,11 +10,11 @@ const SignUpWrap = styled.div`
   min-height: 100vh;
   width: 100vw;
 
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-family: 'ZCOOL QingKe HuangYou';
 `
 
 const SignUpFormWrap = styled.div`
-  padding-top: 180px;
+  padding-top: 18vh;
   padding-left: 36vw;
   padding-right: 38vw;
 `
