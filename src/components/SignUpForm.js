@@ -7,6 +7,14 @@ import validatePassword from '../validators/passwordValidator.js'
 import validateFieldLength from '../validators/minLengthValidator.js'
 import validateAvatarUpload from '../validators/avatarUploadValidator.js'
 
+const AddAvatarButtonWrap = styled.div`
+  padding-right: 176px;
+`
+
+const InputFieldWrap = styled.div`
+  margin-bottom: 10px;
+`
+
 const SubmitButton = styled(Button)`
   margin-top: 20px;
 
@@ -19,15 +27,6 @@ const SubmitButton = styled(Button)`
   font-size: 32px;
 ` 
 
-const P = styled.p`
-  font-size: 1.6em;
-  color: #F2284E;
-`
-
-const AddAvatarButtonWrap = styled.div`
-  padding-right: 176px;
-`
-
 const AddAvatarButton = styled(InputField)`
   font-size: 24px;
   color: #484f4f;
@@ -38,8 +37,9 @@ const AddAvatarButton = styled(InputField)`
   border-radius: 6px;
 `
 
-const InputFieldWrap = styled.div`
-  margin-bottom: 10px;
+const P = styled.p`
+  font-size: 1.6em;
+  color: #F2284E;
 `
 
 function SignUpForm({action, method}) {

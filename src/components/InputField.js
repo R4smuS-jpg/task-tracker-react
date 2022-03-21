@@ -13,7 +13,6 @@ const Label = styled.label`
   font-size: 36px;
 `
 
-
 function InputField({className, type, id, placeholder, onChange, onBlur, children}) {
   return (
     <Label hmtlFor={id}>{children}
