@@ -30,16 +30,10 @@ function SignInForm({action, method}) {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const [buttonState, disableButton] = useState("false");
+  const [buttonState, disableButton] = useState(false);
 
   function handleChangeEmail(event) {
     setEmailError(validateEmail(event.target.value));
-    
-    if (emailError != "") {
-      disableButton("true");
-    } else {
-      disableButton("false")
-    }
   }
 
   function handleChangePassword(event) {
@@ -62,7 +56,7 @@ function SignInForm({action, method}) {
         <P>{passwordError}</P>
       </InputFieldWrap>
 
-      <SubmitButton  form="signInForm" className="Button" type="submit">Sign In</SubmitButton>
+      <SubmitButton disabled={!emailError == "" || !passwordError == ""} form="signInForm" className="Button" type="submit">Sign In</SubmitButton>
     </form>
   );
 }

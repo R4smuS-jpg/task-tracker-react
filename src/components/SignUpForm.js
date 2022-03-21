@@ -50,8 +50,6 @@ function SignUpForm({action, method}) {
   const [lastNameLengthError, setLastNameLengthError] = useState("");
   const [avatarUploadError, setAvatarUploadError] = useState("");
 
-
-
   function handleChangeEmail(event) {
     setEmailError(validateEmail(event.target.value));
   }
@@ -112,7 +110,7 @@ function SignUpForm({action, method}) {
         <P>{avatarUploadError}</P>
       </AddAvatarButtonWrap>
 
-      <SubmitButton className="Button" form="signUpForm" type="submit">Sign Up</SubmitButton>
+      <SubmitButton disabled={!emailError == "" || !passwordError == "" || !nicknameLengthError == "" || !firstNameLengthError == "" || !lastNameLengthError == ""} className="Button" form="signUpForm" type="submit">Sign Up</SubmitButton>
     </form>
   );
 }
