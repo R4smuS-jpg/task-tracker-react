@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import InputField from './InputField';
 import styled from 'styled-components'
+import validateEmail from '../validators/emailValidator.js'
+import validatePassword from '../validators/passwordValidator.js'
+import validateFieldLength from '../validators/minLengthValidator.js'
 
 const SubmitButton = styled(Button)`
   margin-top: 20px;
@@ -15,49 +18,92 @@ const SubmitButton = styled(Button)`
   font-size: 32px;
 ` 
 
-const AddAvatarButtonWrapper = styled.div`
-  padding-right: 136px;
+const P = styled.p`
+  font-size: 1.6em;
+  color: #F2284E;
+`
+
+const AddAvatarButtonWrap = styled.div`
+  padding-right: 176px;
 `
 
 const AddAvatarButton = styled(InputField)`
   font-size: 24px;
   color: #484f4f;
   
-  width: 360px;
+  width: 320px;
 
   border: 2px solid #379683;
-  border-radius: 8px;
+  border-radius: 6px;
 `
 
-const InputFieldWrapper = styled.div`
+const InputFieldWrap = styled.div`
   margin-bottom: 10px;
 `
 
 function SignUpForm({action, method}) {
-  function onBlurTrim(event) {
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("")
+  const [nicknameLengthError, setNicknameLengthError] = useState("");
+  const [firstNameLengthError, setFirstNameLengthError] = useState("");
+  const [lastNameLengthError, setLastNameLengthError] = useState("");
+
+
+  function handleChangeEmail(event) {
+    setEmailError(validateEmail(event.target.value))
+  }
+
+  function handleChangePassword(event) {
+    setPasswordError(validatePassword(event.target.value))
+  }
+
+  function handleChangeNicknameLength(event) {
+    setNicknameLengthError(validateFieldLength("Nickname", event.target.value));
+  }
+
+  function handleChangeFirstNameLength(event) {
+    setFirstNameLengthError(validateFieldLength("First name", event.target.value));
+  }
+
+  function handleChangeLastNameLength(event) {
+    setLastNameLengthError(validateFieldLength("Last name", event.target.value));
+  }
+
+  function handleBlur(event) {
     event.target.value = event.target.value.trim()
   }
 
   return (
     <form action={action} method={method} id="signUpForm" enctype="multipart/form-data">
-      <InputFieldWrapper>
-        <InputField id="email" type="email" placeholder="Email" onBlur={onBlurTrim}>Email</InputField>
-      </InputFieldWrapper>
-      <InputFieldWrapper>
-        <InputField id="nickname" type="text" placeholder="Nickname" onBlur={onBlurTrim}>Nickname</InputField>
-      </InputFieldWrapper>
-      <InputFieldWrapper>
-        <InputField id="firstName" type="text" placeholder="First name" onBlur={onBlurTrim}>First name</InputField>
-      </InputFieldWrapper>
-      <InputFieldWrapper>
-        <InputField id="lastName" type="text" placeholder="Last name" onBlur={onBlurTrim}>Last name</InputField>
-      </InputFieldWrapper>
-      <InputFieldWrapper>
-        <InputField id="password" type="password" placeholder="Password">Password</InputField>
-      </InputFieldWrapper>
-      <AddAvatarButtonWrapper>
+      <InputFieldWrap>
+        <InputField id="email" type="email" placeholder="Email" onBlur={handleBlur} onChange={handleChangeEmail}>Email</InputField>
+        <P>{emailError}</P>
+      </InputFieldWrap>
+
+      <InputFieldWrap>
+        <InputField id="nickname" type="text" placeholder="Nickname" onBlur={handleBlur} onChange={handleChangeNicknameLength}>Nickname</InputField>
+        <P>{nicknameLengthError}</P>
+      </InputFieldWrap>
+
+      <InputFieldWrap>
+        <InputField id="firstName" type="text" placeholder="First name" onBlur={handleBlur} onChange={handleChangeFirstNameLength}>First name</InputField>
+        <P>{firstNameLengthError}</P>
+      </InputFieldWrap>
+
+      <InputFieldWrap>
+        <InputField id="lastName" type="text" placeholder="Last name" onBlur={handleBlur} onChange={handleChangeLastNameLength}>Last name</InputField>
+        <P>{lastNameLengthError}</P>
+      </InputFieldWrap>
+
+      <InputFieldWrap>
+        <InputField id="password" type="password" placeholder="Password" onChange={handleChangePassword}>Password</InputField>
+        <P>{passwordError}</P>
+      </InputFieldWrap>
+
+      <AddAvatarButtonWrap>
         <AddAvatarButton className="InputField" id="avatar" type="file" accept="image/png, image/jpeg">Add avatar</AddAvatarButton>
-      </AddAvatarButtonWrapper>
+      </AddAvatarButtonWrap>
+
       <SubmitButton className="Button" form="signUpForm" type="submit">Sign Up</SubmitButton>
     </form>
   );

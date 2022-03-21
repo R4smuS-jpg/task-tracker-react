@@ -14,6 +14,7 @@ const HeaderLogin = styled.header`
 
 const HeaderTitle = styled.h1`
   font-size: 3em;
+
   margin: 0em 1em;
 `
 

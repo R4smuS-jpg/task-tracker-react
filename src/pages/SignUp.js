@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import SignUpForm from '../components/SignUpForm';
 import styled from 'styled-components'
 
-const SignUpWrapper = styled.div`
+const SignUpWrap = styled.div`
   background-color: #5cdb95;
   color: #fffff0;
   
@@ -13,7 +13,7 @@ const SignUpWrapper = styled.div`
   font-family: 'ZCOOL QingKe HuangYou', cursive;
 `
 
-const SignUpFormWrapper = styled.div`
+const SignUpFormWrap = styled.div`
   padding-top: 180px;
   padding-left: 36vw;
   padding-right: 38vw;
@@ -21,12 +21,12 @@ const SignUpFormWrapper = styled.div`
 
 function SignUp() {
   return (
-    <SignUpWrapper>
+    <SignUpWrap>
       <Header>Sign Up Page</Header>
-      <SignUpFormWrapper>
-        <SignUpForm action="" method=""></SignUpForm>
-      </SignUpFormWrapper>
-    </SignUpWrapper>
+      <SignUpFormWrap>
+        <SignUpForm action="" method=""/>
+      </SignUpFormWrap>
+    </SignUpWrap>
   );
 }
 

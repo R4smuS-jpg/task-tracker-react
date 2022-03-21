@@ -7,13 +7,12 @@ const Input = styled.input`
   border-radius: 6px;
 
   font-size: 32px;
-
-  display: block;
 `
 
 const Label = styled.label`
   font-size: 36px;
 `
+
 
 function InputField({className, type, id, placeholder, onChange, onBlur, children}) {
   return (
