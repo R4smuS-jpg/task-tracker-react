@@ -15,8 +15,8 @@ const StyledHeader = styled.header`
   min-width: 100vw;
 `
 
-const HeaderTitleWrap = styled.div`
-  display: flex;
+const StyledLink = styled(Link)`
+  color: inherit;
 `
 
 const AnotherHeaderTitle = styled.h1`
@@ -30,8 +30,8 @@ const HeaderTitle = styled.h1`
   margin-right: 1em;
 `
 
-const StyledLink = styled(Link)`
-  color: inherit;
+const HeaderTitleWrap = styled.div`
+  display: flex;
 `
 
 function Header({children}) {

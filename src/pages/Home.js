@@ -3,16 +3,6 @@ import styled from 'styled-components'
 import Header from '../components/Header';
 import cat from '../images/giphy.gif'
 
-const HomeWrap = styled.div`
-  background-color: #5cdb95;
-  color: #fffff0;
-  
-  min-height: 100vh;
-  width: 100vw;
-
-  font-family: 'ZCOOL QingKe HuangYou';
-`
-
 const Image = styled.img`
   border-radius: 8px;
 
@@ -31,6 +21,16 @@ const Title = styled.h1`
   padding-top: 15vh;
 
   text-align: center;
+`
+
+const HomeWrap = styled.div`
+  background-color: #5cdb95;
+  color: #fffff0;
+  
+  min-height: 100vh;
+  width: 100vw;
+
+  font-family: 'ZCOOL QingKe HuangYou';
 `
 
 function Home() {

@@ -30,6 +30,8 @@ function SignInForm({action, method}) {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const [buttonState, disableButton] = useState(false);
+
   function handleChangeEmail(event) {
     setEmailError(validateEmail(event.target.value));
   }
