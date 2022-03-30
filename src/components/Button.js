@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const DefaultButton = styled.button`
   cursor: pointer;
@@ -8,11 +8,13 @@ const DefaultButton = styled.button`
   border-radius: 6px;
 
   font: inherit;
-`
+`;
 
-function Button({form, type, img, onClick, children, className, disabled}) {
+function Button({ form, type, img, onClick, children, className, disabled }) {
   return (
-    <DefaultButton className={className} disabled={disabled} form={form} type={type} img={img} onClick={onClick}>{children}</DefaultButton>
+    <DefaultButton className={className} disabled={disabled} form={form} type={type} img={img} onClick={onClick}>
+      {children}
+    </DefaultButton>
   );
 }
 
