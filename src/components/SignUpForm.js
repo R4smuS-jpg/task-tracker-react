@@ -49,29 +49,72 @@ function SignUpForm({ action, method }) {
   const [firstNameLengthError, setFirstNameLengthError] = useState("");
   const [lastNameLengthError, setLastNameLengthError] = useState("");
   const [avatarUploadError, setAvatarUploadError] = useState("");
+  const [buttonState, setButtonState] = useState(true);
 
   function handleChangeEmail(event) {
-    setEmailError(validateEmail(event.target.value));
+    const error = validateEmail(event.target.value);
+    setEmailError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleChangePassword(event) {
-    setPasswordError(validatePassword(event.target.value));
+    const error = validatePassword(event.target.value);
+    setPasswordError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleChangeNicknameLength(event) {
-    setNicknameLengthError(validateFieldLength("Nickname", event.target.value));
+    const error = validateFieldLength("Nickname", event.target.value);
+    setNicknameLengthError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleChangeFirstNameLength(event) {
-    setFirstNameLengthError(validateFieldLength("First name", event.target.value));
+    const error = validateFieldLength("First name", event.target.value);
+    setFirstNameLengthError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleChangeLastNameLength(event) {
-    setLastNameLengthError(validateFieldLength("Last name", event.target.value));
+    const error = validateFieldLength("Last name", event.target.value);
+    setLastNameLengthError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleChangeFile(event) {
-    setAvatarUploadError(validateAvatarUpload(event.target.value));
+    const error = validateAvatarUpload(event.target.value);
+    setAvatarUploadError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleBlur(event) {
@@ -122,18 +165,7 @@ function SignUpForm({ action, method }) {
         <P>{avatarUploadError}</P>
       </AddAvatarButtonWrap>
 
-      <SubmitButton
-        disabled={
-          !emailError === "" ||
-          !passwordError === "" ||
-          !nicknameLengthError === "" ||
-          !firstNameLengthError === "" ||
-          !lastNameLengthError === ""
-        }
-        className="Button"
-        form="signUpForm"
-        type="submit"
-      >
+      <SubmitButton disabled={buttonState} className="Button" form="signUpForm" type="submit">
         Sign Up
       </SubmitButton>
     </form>

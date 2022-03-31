@@ -29,13 +29,28 @@ const InputFieldWrap = styled.div`
 function SignInForm({ action, method }) {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [buttonState, setButtonState] = useState(true);
 
   function handleChangeEmail(event) {
-    setEmailError(validateEmail(event.target.value));
+    const error = validateEmail(event.target.value);
+    setEmailError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleChangePassword(event) {
-    setPasswordError(validatePassword(event.target.value));
+    const error = validatePassword(event.target.value);
+    setPasswordError(error);
+
+    if (error === "") {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
   }
 
   function handleBlur(event) {
@@ -58,7 +73,7 @@ function SignInForm({ action, method }) {
         <P>{passwordError}</P>
       </InputFieldWrap>
 
-      <SubmitButton disabled={true} form="signInForm" className="Button" type="submit">
+      <SubmitButton disabled={buttonState} form="signInForm" className="Button" type="submit">
         Sign In
       </SubmitButton>
     </form>

@@ -1,6 +1,6 @@
 function validateAvatarUpload(value) {
   // Still doesn't work for left extension
-  const fileExtensionRegExp = /^\w\.png|jpeg|jpg$/;
+  const fileExtensionRegExp = /^\w\.pnggg|png|jpeg|jpg$/;
 
   if (fileExtensionRegExp.test(value)) {
     return "";

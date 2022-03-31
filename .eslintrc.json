@@ -21,12 +21,7 @@
   "rules": {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "no-unused-vars": [
-      "error",
-      {
-        "ignoreRestSiblings": true
-      }
-    ],
+    "no-unused-vars": "off",
     "prettier/prettier": "error"
   }
 }
