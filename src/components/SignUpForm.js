@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
 import Button from "./Button";
 import InputField from "./InputField";
-import styled from "styled-components";
+
 import validateEmail from "../validators/emailValidator.js";
 import validatePassword from "../validators/passwordValidator.js";
 import validateFieldLength from "../validators/minLengthValidator.js";

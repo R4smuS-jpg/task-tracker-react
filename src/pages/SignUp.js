@@ -1,7 +1,8 @@
 import React from "react";
+import styled from "styled-components";
+
 import Header from "../components/Header";
 import SignUpForm from "../components/SignUpForm";
-import styled from "styled-components";
 
 const SignUpWrap = styled.div`
   background-color: #5cdb95;
