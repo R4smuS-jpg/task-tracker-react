@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
+import { useApolloClient } from "@apollo/client";
 
 import Header from "../components/Header";
 import cat from "../images/giphy.gif";
+import useAuthUser from "../api/AuthUser";
 
 const Image = styled.img`
   border-radius: 8px;
@@ -35,6 +39,17 @@ const HomeWrap = styled.div`
 `;
 
 function Home() {
+  const { user, isLoading } = useAuthUser();
+
+  const client = useApolloClient();
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isLoading === false && !user) {
+      navigate("/sign-in");
+    }
+  }, [user, isLoading]);
+
   return (
     <HomeWrap>
       <Header />

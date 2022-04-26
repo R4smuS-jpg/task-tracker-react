@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import SignInForm from "../components/SignInForm";
 import Header from "../components/Header";
+import { useApolloClient } from "@apollo/client";
+import useAuthUser from "../api/AuthUser";
+import { useNavigate } from "react-router-dom";
 
 const SignInWrap = styled.div`
   background-color: #5cdb95;
@@ -21,6 +24,16 @@ const SignInFormWrap = styled.div`
 `;
 
 function SignIn() {
+  const { user, isLoading } = useAuthUser();
+  const client = useApolloClient();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isLoading === false && user) {
+      navigate("/", { replace: true });
+    }
+  }, [isLoading, user]);
+
   return (
     <SignInWrap>
       <Header>Sign In Page</Header>
