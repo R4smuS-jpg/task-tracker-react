@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/itis-frontend-app/static/css/main.cf506294.css",
-    "main.js": "/itis-frontend-app/static/js/main.75e98983.js",
+    "main.js": "/itis-frontend-app/static/js/main.17d5b702.js",
     "static/media/giphy.gif": "/itis-frontend-app/static/media/giphy.7869f2427bc41bca74f1.gif",
     "index.html": "/itis-frontend-app/index.html",
     "main.cf506294.css.map": "/itis-frontend-app/static/css/main.cf506294.css.map",
-    "main.75e98983.js.map": "/itis-frontend-app/static/js/main.75e98983.js.map"
+    "main.17d5b702.js.map": "/itis-frontend-app/static/js/main.17d5b702.js.map"
   },
   "entrypoints": [
     "static/css/main.cf506294.css",
-    "static/js/main.75e98983.js"
+    "static/js/main.17d5b702.js"
   ]
 }
