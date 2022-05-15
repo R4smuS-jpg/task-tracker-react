@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
+import useAuthUser from "../api/AuthUser";
 
 import Header from "../components/Header";
 import SignUpForm from "../components/SignUpForm";
@@ -25,7 +28,7 @@ function SignUp() {
     <SignUpWrap>
       <Header>Sign Up Page</Header>
       <SignUpFormWrap>
-        <SignUpForm action="" method="" />
+        <SignUpForm />
       </SignUpFormWrap>
     </SignUpWrap>
   );

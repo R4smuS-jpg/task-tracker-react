@@ -5,8 +5,10 @@ import styled from "styled-components";
 import { useApolloClient } from "@apollo/client";
 
 import Header from "../components/Header";
-import cat from "../images/giphy.gif";
 import useAuthUser from "../api/AuthUser";
+import useCreateProject from "../api/mutations/hooks/useCreateProject";
+import useUpdateProject from "../api/mutations/hooks/useUpdateProject";
+import useRemoveProject from "../api/mutations/hooks/useRemoveProject";
 
 const Image = styled.img`
   border-radius: 8px;
@@ -43,7 +45,16 @@ function Home() {
 
   const client = useApolloClient();
   const navigate = useNavigate();
-  
+  const handleLogoutClick = async () => {
+    localStorage.clear();
+    await client.clearStore();
+    navigate("/sign-in");
+  };
+
+  const { create } = useCreateProject();
+  const { remove } = useRemoveProject();
+  const { update } = useUpdateProject();
+
   useEffect(() => {
     if (isLoading === false && !user) {
       navigate("/sign-in");
@@ -54,7 +65,6 @@ function Home() {
     <HomeWrap>
       <Header />
       <Title>Welcome to the Task-Tracker =)</Title>
-      <Image src={cat}></Image>
     </HomeWrap>
   );
 }
