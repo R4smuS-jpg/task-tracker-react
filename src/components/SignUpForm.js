@@ -63,7 +63,6 @@ function SignUpForm({ action, method }) {
   const [firstNameLengthError, setFirstNameLengthError] = useState("");
   const [lastNameLengthError, setLastNameLengthError] = useState("");
   const [avatarUploadError, setAvatarUploadError] = useState("");
-  const [disabledButtonState, setDisabledButtonState] = useState(true);
 
   function useHandleChangeField(stateSetter) {
     return useCallback((event) => {

@@ -51,7 +51,6 @@ function SignInForm() {
   // hooks
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [disabledButtonState, setDisabledButtonState] = useState(true);
 
   const [formState, setFormState] = useState(INITIAL_FORM_STATE);
 
@@ -61,7 +60,6 @@ function SignInForm() {
     setEmailError(error);
 
     useHandleChangeField(setFormState);
-    // changeButtonState;
   }
 
   function handleChangePassword(event) {
@@ -69,24 +67,12 @@ function SignInForm() {
     setPasswordError(error);
 
     useHandleChangeField(setFormState);
-    // changeButtonState;
   }
 
   // other functions
   function handleBlur(event) {
     event.target.value = event.target.value.trim();
   }
-
-  // function changeButtonState() {
-  //   for (let i = 0; i < formErrors.length; i++) {
-  //     if (formErrors[i].match(/[a-z]/)) {
-  //       setDisabledButtonState(true);
-  //       return;
-  //     }
-  //   }
-
-  //   setDisabledButtonState(false);
-  // }
 
   const { user, isLoading } = useAuthUser();
   const client = useApolloClient();
