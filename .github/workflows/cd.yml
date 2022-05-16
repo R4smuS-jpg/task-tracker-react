@@ -21,7 +21,7 @@ jobs:
         run: yarn build
         env:
           REACT_APP_API_URL: https://itis-task-tracker-be.herokuapp.com
-          PUBLIC_URL: /itis-frontend-app
+          PUBLIC_URL: /task-tracker-react
           REACT_APP_HASH_ROUTER: true
       - name: deploy
         run: |
