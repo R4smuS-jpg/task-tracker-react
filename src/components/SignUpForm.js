@@ -56,7 +56,7 @@ const INITIAL_FORM_STATE = {
   password: "",
 };
 
-function SignUpForm({ action, method }) {
+function SignUpForm() {
   // hooks
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -82,7 +82,6 @@ function SignUpForm({ action, method }) {
     const error = validateEmail(event.target.value);
     setEmailError(error);
 
-    // changeButtonState;
     useHandleChangeField(setFormState);
   }
 
@@ -90,7 +89,6 @@ function SignUpForm({ action, method }) {
     const error = validatePassword(event.target.value);
     setPasswordError(error);
 
-    // changeButtonState;
     useHandleChangeField(setFormState);
   }
 
@@ -98,7 +96,6 @@ function SignUpForm({ action, method }) {
     const error = validateFieldLength("First name", event.target.value);
     setFirstNameLengthError(error);
 
-    // changeButtonState;
     useHandleChangeField(setFormState);
   }
 
@@ -106,16 +103,13 @@ function SignUpForm({ action, method }) {
     const error = validateFieldLength("Last name", event.target.value);
     setLastNameLengthError(error);
 
-    // changeButtonState;
     useHandleChangeField(setFormState);
-    console.log(formState);
   }
 
   function handleChangeFile(event) {
     const error = validateAvatarUpload(event.target.value);
     setAvatarUploadError(error);
 
-    // changeButtonState;
     useHandleChangeField(setFormState);
   }
 
@@ -141,7 +135,14 @@ function SignUpForm({ action, method }) {
   return (
     <form>
       <InputFieldWrap>
-        <InputField id="email" type="email" placeholder="Email" onBlur={handleBlur} onChange={handleChangeEmail} value={formState.email}>
+        <InputField
+          id="email"
+          type="email"
+          placeholder="Email"
+          onBlur={handleBlur}
+          onChange={useHandleChangeField(setFormState)}
+          value={formState.email}
+        >
           Email
         </InputField>
         <P>{emailError}</P>
@@ -153,7 +154,7 @@ function SignUpForm({ action, method }) {
           type="text"
           placeholder="First name"
           onBlur={handleBlur}
-          onChange={handleChangeFirstNameLength}
+          onChange={useHandleChangeField(setFormState)}
           value={formState.firstName}
         >
           First name
@@ -167,7 +168,7 @@ function SignUpForm({ action, method }) {
           type="text"
           placeholder="Last name"
           onBlur={handleBlur}
-          onChange={handleChangeLastNameLength}
+          onChange={useHandleChangeField(setFormState)}
           value={formState.lastName}
         >
           Last name
@@ -176,14 +177,20 @@ function SignUpForm({ action, method }) {
       </InputFieldWrap>
 
       <InputFieldWrap>
-        <InputField id="password" type="password" placeholder="Password" onChange={handleChangePassword} value={formState.password}>
+        <InputField
+          id="password"
+          type="password"
+          placeholder="Password"
+          onChange={useHandleChangeField(setFormState)}
+          value={formState.password}
+        >
           Password
         </InputField>
         <P>{passwordError}</P>
       </InputFieldWrap>
 
       <AddAvatarButtonWrap>
-        <AddAvatarButton className="InputField" id="avatar" type="file" onChange={handleChangeFile}>
+        <AddAvatarButton className="InputField" id="avatar" type="file" onChange={useHandleChangeField(setFormState)}>
           Add avatar
         </AddAvatarButton>
         <P>{avatarUploadError}</P>

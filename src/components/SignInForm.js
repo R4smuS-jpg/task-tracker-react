@@ -36,37 +36,35 @@ const InputFieldWrap = styled.div`
 
 const INITIAL_FORM_STATE = { email: "", password: "" };
 
-function useHandleChangeField(stateSetter) {
-  return useCallback((event) => {
-    const { value, id } = event.target;
-
-    stateSetter((currentState) => ({
-      ...currentState,
-      [id]: value,
-    }));
-  }, []);
-}
-
 function SignInForm() {
   // hooks
+  function useHandleChangeField(stateSetter) {
+    // handleChangeEmail(document.getElementById("email"));
+
+    return useCallback((event) => {
+      const { value, id } = event.target;
+
+      stateSetter((currentState) => ({
+        ...currentState,
+        [id]: value,
+      }));
+    }, []);
+  }
+
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
   const [formState, setFormState] = useState(INITIAL_FORM_STATE);
 
   // handlers
-  function handleChangeEmail(event) {
-    const error = validateEmail(event.target.value);
+  function handleChangeEmail(value) {
+    const error = validateEmail(value);
     setEmailError(error);
-
-    useHandleChangeField(setFormState);
   }
 
-  function handleChangePassword(event) {
-    const error = validatePassword(event.target.value);
+  function handleChangePassword(value) {
+    const error = validatePassword(value);
     setPasswordError(error);
-
-    useHandleChangeField(setFormState);
   }
 
   // other functions
@@ -91,14 +89,27 @@ function SignInForm() {
   return (
     <form id="signInForm">
       <InputFieldWrap>
-        <InputField id="email" type="email" placeholder="Email" value={formState.email} onBlur={handleBlur} onChange={handleChangeEmail}>
+        <InputField
+          id="email"
+          type="email"
+          placeholder="Email"
+          value={formState.email}
+          onBlur={handleBlur}
+          onChange={useHandleChangeField(setFormState)}
+        >
           Email
         </InputField>
         <P>{emailError}</P>
       </InputFieldWrap>
 
       <InputFieldWrap>
-        <InputField id="password" type="password" placeholder="Password" value={formState.password} onChange={handleChangePassword}>
+        <InputField
+          id="password"
+          type="password"
+          placeholder="Password"
+          value={formState.password}
+          onChange={useHandleChangeField(setFormState)}
+        >
           Password
         </InputField>
         <P>{passwordError}</P>

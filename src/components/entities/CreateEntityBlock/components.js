@@ -7,6 +7,7 @@ export const Wrapper = styled.div(
     justify-content: space-between;
     align-items: center;
     padding: 1em;
+
     margin-bottom: 1em;
     border: 3px solid #379683;
     border-radius: 6px;

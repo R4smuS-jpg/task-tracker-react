@@ -3,8 +3,8 @@ import { USER_ME_QUERY } from "../query/currentUser";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../authKeys";
 
 const SIGN_IN_MUTATION = gql`
-  mutation signIn($login: String!, $password: String!) {
-    signin(input: { email: $login, password: $password }) {
+  mutation signIn($email: String!, $password: String!) {
+    signin(input: { email: $email, password: $password }) {
       accessToken
       refreshToken
     }
