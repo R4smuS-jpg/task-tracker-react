@@ -7,8 +7,14 @@ import { useApolloClient } from "@apollo/client";
 import Header from "../components/Header";
 import useAuthUser from "../api/AuthUser";
 import useCreateProject from "../api/mutations/hooks/useCreateProject";
-import useUpdateProject from "../api/mutations/hooks/useUpdateProject";
 import useRemoveProject from "../api/mutations/hooks/useRemoveProject";
+import EntityListWrapper from "../components/entities/EntityListWrapper";
+import EntityCard from "../components/entities/EntityCard";
+import useCurrentUser from "../api/query/hooks/useCurrentUser";
+import Button from "../components/Button";
+import useUpdateProject from "../api/mutations/hooks/useUpdateProject";
+import CreateEntityBlock from "../components/entities/CreateEntityBlock/CreateEntityBlock";
+import { Wrapper } from "components/entities/EntityCard/components";
 
 const Image = styled.img`
   border-radius: 8px;
@@ -40,6 +46,15 @@ const HomeWrap = styled.div`
   font-family: "ZCOOL QingKe HuangYou";
 `;
 
+const CreateProject = styled(Wrapper)`
+  margin-top: 10px;
+`;
+
+const INITIAL_FORM_STATE = {
+  name: "New task 5",
+  description: "desc",
+};
+
 function Home() {
   const { user, isLoading } = useAuthUser();
 
@@ -51,20 +66,33 @@ function Home() {
     navigate("/sign-in");
   };
 
-  const { create } = useCreateProject();
+  const { create, loading, error } = useCreateProject();
   const { remove } = useRemoveProject();
   const { update } = useUpdateProject();
 
   useEffect(() => {
     if (isLoading === false && !user) {
-      navigate("/sign-in");
+      navigate("/");
     }
   }, [user, isLoading]);
 
   return (
     <HomeWrap>
       <Header />
-      <Title>Welcome to the Task-Tracker =)</Title>
+      <CreateEntityBlock entity="project" handleLogoutClick={handleLogoutClick} createRequest={create} isLoading={loading} error={error} />
+      <EntityListWrapper>
+        {user?.projects?.map(({ id, name, description }) => (
+          <EntityCard
+            key={id}
+            id={id}
+            title="Project"
+            name={name}
+            description={description}
+            onRemoveClick={remove}
+            onUpdateClick={update}
+          />
+        ))}
+      </EntityListWrapper>
     </HomeWrap>
   );
 }

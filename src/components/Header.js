@@ -12,6 +12,8 @@ const StyledHeader = styled.header`
   padding-top: 1.7em;
   padding-bottom: 1.7em;
 
+  margin-bottom: 30px;
+
   min-width: 100vw;
 `;
 

@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
-
-import useAuthUser from "../api/AuthUser";
 
 import Header from "../components/Header";
 import SignUpForm from "../components/SignUpForm";
