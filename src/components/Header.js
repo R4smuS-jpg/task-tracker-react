@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const StyledHeader = styled.header`
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: space-between;
 

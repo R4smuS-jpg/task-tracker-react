@@ -72,7 +72,7 @@ function Home() {
 
   useEffect(() => {
     if (isLoading === false && !user) {
-      navigate("/");
+      navigate("/sign-in");
     }
   }, [user, isLoading]);
 

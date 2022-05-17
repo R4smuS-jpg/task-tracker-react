@@ -20,7 +20,9 @@ export const Header = styled.div`
   border-bottom: 1px solid black;
 `;
 
-export const Title = styled.div``;
+export const Title = styled.div`
+  font-size: 2em;
+`;
 
 export const ButtonWrapper = styled.div`
   display: flex;

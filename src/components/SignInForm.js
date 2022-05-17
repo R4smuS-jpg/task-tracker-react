@@ -39,10 +39,11 @@ const INITIAL_FORM_STATE = { email: "", password: "" };
 function SignInForm() {
   // hooks
   function useHandleChangeField(stateSetter) {
-    // handleChangeEmail(document.getElementById("email"));
-
     return useCallback((event) => {
       const { value, id } = event.target;
+      if (id == "email") {
+        handleChangeEmail(event.target.value);
+      }
 
       stateSetter((currentState) => ({
         ...currentState,

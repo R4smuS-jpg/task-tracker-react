@@ -13,11 +13,11 @@ const Label = styled.label`
   font-size: 36px;
 `;
 
-function InputField({ className, type, id, placeholder, onChange, onBlur, children }) {
+function InputField({ className, type, id, placeholder, onChange, onBlur, children, value }) {
   return (
     <Label hmtlFor={id}>
       {children}
-      <Input className={className} type={type} id={id} placeholder={placeholder} onChange={onChange} onBlur={onBlur} />
+      <Input className={className} type={type} id={id} placeholder={placeholder} onChange={onChange} onBlur={onBlur} value={value} />
     </Label>
   );
 }
