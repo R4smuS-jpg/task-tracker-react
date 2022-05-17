@@ -26,6 +26,8 @@ export const Title = styled.div`
   margin-right: 1em;
   font-size: 20px;
   font-weight: 600;
+  color: #484f4f;
+  font-size: 2em;
 `;
 
 export const Form = styled.form`
