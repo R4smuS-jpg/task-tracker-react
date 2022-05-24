@@ -41,8 +41,14 @@ function SignInForm() {
   function useHandleChangeField(stateSetter) {
     return useCallback((event) => {
       const { value, id } = event.target;
-      if (id == "email") {
-        handleChangeEmail(event.target.value);
+
+      switch (id) {
+        case "email":
+          handleChangeEmail(value);
+          break;
+        case "password":
+          handleChangePassword(value);
+          break;
       }
 
       stateSetter((currentState) => ({

@@ -15,7 +15,7 @@ const SignInWrap = styled.div`
 `;
 
 const SignInFormWrap = styled.div`
-  padding-top: 30vh;
+  padding-top: 15vh;
   padding-left: 36vw;
   padding-right: 38vw;
 `;

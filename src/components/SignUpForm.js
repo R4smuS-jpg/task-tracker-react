@@ -68,6 +68,23 @@ function SignUpForm() {
     return useCallback((event) => {
       const { value, id } = event.target;
 
+      switch (id) {
+        case "email":
+          handleChangeEmail(value);
+          break;
+        case "password":
+          handleChangePassword(value);
+          break;
+        case "firstName":
+          handleChangeFirstNameLength(value);
+          break;
+        case "lastName":
+          handleChangeLastNameLength(value);
+          break;
+        case "avatar":
+          handleChangeFile(value);
+      }
+
       stateSetter((currentState) => ({
         ...currentState,
         [id]: value,
@@ -78,39 +95,29 @@ function SignUpForm() {
   const [formState, setFormState] = useState(INITIAL_FORM_STATE);
 
   // handlers
-  function handleChangeEmail(event) {
-    const error = validateEmail(event.target.value);
+  function handleChangeEmail(value) {
+    const error = validateEmail(value);
     setEmailError(error);
-
-    useHandleChangeField(setFormState);
   }
 
-  function handleChangePassword(event) {
-    const error = validatePassword(event.target.value);
+  function handleChangePassword(value) {
+    const error = validatePassword(value);
     setPasswordError(error);
-
-    useHandleChangeField(setFormState);
   }
 
-  function handleChangeFirstNameLength(event) {
-    const error = validateFieldLength("First name", event.target.value);
+  function handleChangeFirstNameLength(value) {
+    const error = validateFieldLength("First name", value);
     setFirstNameLengthError(error);
-
-    useHandleChangeField(setFormState);
   }
 
-  function handleChangeLastNameLength(event) {
-    const error = validateFieldLength("Last name", event.target.value);
+  function handleChangeLastNameLength(value) {
+    const error = validateFieldLength("Last name", value);
     setLastNameLengthError(error);
-
-    useHandleChangeField(setFormState);
   }
 
-  function handleChangeFile(event) {
-    const error = validateAvatarUpload(event.target.value);
+  function handleChangeFile(value) {
+    const error = validateAvatarUpload(value);
     setAvatarUploadError(error);
-
-    useHandleChangeField(setFormState);
   }
 
   function handleBlur(event) {

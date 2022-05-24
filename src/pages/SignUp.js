@@ -15,7 +15,7 @@ const SignUpWrap = styled.div`
 `;
 
 const SignUpFormWrap = styled.div`
-  padding-top: 18vh;
+  padding-top: 10vh;
   padding-left: 36vw;
   padding-right: 38vw;
 `;

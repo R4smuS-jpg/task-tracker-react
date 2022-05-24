@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   border: 1px solid black;
   border-radius: ${defaultBorderRadius};
+  margin-top: 1em;
 `;
 
 export const Header = styled.div`
