@@ -76,10 +76,7 @@ export default function EntityCard({ title, name, id, description, onRemoveClick
         >
           Description:
         </InputField>
-        <TasksButtonWrapper>
-          <TasksButton>Tasks</TasksButton>
-          <AddTaskButton>Add Task</AddTaskButton>
-        </TasksButtonWrapper>
+        <TasksButton>Tasks</TasksButton>
       </Form>
     </Wrapper>
   );

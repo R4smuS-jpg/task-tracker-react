@@ -6,30 +6,28 @@ const defaultBorderRadius = "8px";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  border-radius: ${defaultBorderRadius};
+  border: 3px solid #379683;
+  border-radius: 10px;
   margin-top: 1em;
 `;
 
 export const TasksButton = styled(Button)`
-  width: 5em;
+  width: 4em;
+  margin-top: 0.5em;
+  color: #484f4f;
+  background-color: white;
+  font-size: 0.9em;
 `;
-
-export const AddTaskButton = styled(Button)``;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e3c09b;
-  padding: 0.5rem;
+  background-color: #5fb384;
+  padding: 0.5rem 0.5em;
   border-top-left-radius: ${defaultBorderRadius};
   border-top-right-radius: ${defaultBorderRadius};
-  border-bottom: 1px solid black;
-`;
-
-export const TasksButtonWrapper = styled.div`
-  display: flex;
+  border-bottom: 3px solid #379683;
 `;
 
 export const Title = styled.div`
@@ -48,7 +46,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  background-color: #d7cbd4;
+  background-color: #f2dccc;
   border-bottom-left-radius: ${defaultBorderRadius};
   border-bottom-right-radius: ${defaultBorderRadius};
   > * {
@@ -60,6 +58,6 @@ export const StyledImage = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 `;

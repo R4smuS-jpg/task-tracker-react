@@ -1,8 +1,8 @@
 import Button from "components/Button";
 import { StyledImage } from "./components";
 
-import EditImg from "./images/pen.png";
-import RemoveImg from "./images/trash-bin.png";
+import EditImg from "./images/edit.png";
+import RemoveImg from "./images/delete.png";
 import DiscardImg from "./images/discard.png";
 import AcceptImg from "./images/accept.png";
 
