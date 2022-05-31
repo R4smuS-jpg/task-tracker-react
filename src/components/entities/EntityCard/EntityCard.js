@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-import Button from "../../Button";
-
-import { Wrapper, Header, Form, ButtonWrapper, StyledImage } from "./components";
-import EditImg from "./images/pen.png";
-import RemoveImg from "./images/trash-bin.png";
+import { Wrapper, Header, Form, ButtonWrapper, StyledButton, TasksButtonWrapper, TasksButton, AddTaskButton } from "./components";
 import InputField from "../../InputField";
 import { ButtonInEditMode, ButtonInShowMode } from "./buttons";
 
@@ -80,6 +76,10 @@ export default function EntityCard({ title, name, id, description, onRemoveClick
         >
           Description:
         </InputField>
+        <TasksButtonWrapper>
+          <TasksButton>Tasks</TasksButton>
+          <AddTaskButton>Add Task</AddTaskButton>
+        </TasksButtonWrapper>
       </Form>
     </Wrapper>
   );

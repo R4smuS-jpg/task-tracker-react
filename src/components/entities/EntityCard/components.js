@@ -1,3 +1,4 @@
+import Button from "components/Button";
 import styled from "styled-components";
 
 const defaultBorderRadius = "8px";
@@ -10,6 +11,12 @@ export const Wrapper = styled.div`
   margin-top: 1em;
 `;
 
+export const TasksButton = styled(Button)`
+  width: 5em;
+`;
+
+export const AddTaskButton = styled(Button)``;
+
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -19,6 +26,10 @@ export const Header = styled.div`
   border-top-left-radius: ${defaultBorderRadius};
   border-top-right-radius: ${defaultBorderRadius};
   border-bottom: 1px solid black;
+`;
+
+export const TasksButtonWrapper = styled.div`
+  display: flex;
 `;
 
 export const Title = styled.div`
