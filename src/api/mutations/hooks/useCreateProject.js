@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
-import createProject from "../createProject";
-import getCurrentUser from "../../query/getCurrentUser";
+import createProject from "api/mutations/createProject";
+import getCurrentUser from "api/query/getCurrentUser";
 
 const useCreateProject = () => {
   const [mutation, { data }] = useMutation(createProject, {

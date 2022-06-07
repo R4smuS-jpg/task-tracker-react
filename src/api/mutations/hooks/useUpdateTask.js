@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
-import getCurrentUser from "../../query/getCurrentUser";
-import updateTask from "../updateTask";
+import getCurrentUser from "api/query/getCurrentUser";
+import updateTask from "api/mutations/updateTask";
 
 const useUpdateTask = () => {
   const [mutation, { data }] = useMutation(updateTask, {

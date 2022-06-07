@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo } from "react";
 import { useApolloClient, useQuery } from "@apollo/client";
 
-import { USER_ME_QUERY } from "./query/currentUser";
+import { USER_ME_QUERY } from "api/query/currentUser";
 
 const UserContext = createContext();
 

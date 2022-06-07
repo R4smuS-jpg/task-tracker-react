@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import project from "../fragments/project";
+import project from "api/fragments/project";
 
 export const USER_ME_QUERY = gql`
   query currentUser {

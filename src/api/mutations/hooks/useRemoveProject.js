@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
-import removeProject from "../removeProject";
-import getCurrentUser from "../../query/getCurrentUser";
+import removeProject from "api/mutations/removeProject";
+import getCurrentUser from "api/query/getCurrentUser";
 
 const useRemoveProject = () => {
   const [mutation, { data }] = useMutation(removeProject, {

@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../authKeys";
-import { USER_ME_QUERY } from "../query/currentUser";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "api/authKeys";
+import { USER_ME_QUERY } from "api/query/currentUser";
 
 const SIGN_UP_MUTATION = gql`
   mutation signUp($email: String!, $password: String!, $firstName: String, $lastName: String) {
