@@ -1,17 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const Input = styled.input`
-  background-color: white;
-  border: 3px solid #379683;
-  border-radius: 6px;
-
-  font-size: 32px;
-`;
-
-const Label = styled.label`
-  font-size: 36px;
-`;
+import { Label, Input } from "components/input/InputField/components";
 
 function InputField({ className, type, id, placeholder, onChange, onBlur, children, value }) {
   return (

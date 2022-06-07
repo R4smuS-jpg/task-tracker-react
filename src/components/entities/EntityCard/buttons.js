@@ -1,10 +1,10 @@
-import Button from "components/Button";
-import { StyledImage } from "./components";
+import Button from "components/Button/Button";
+import { StyledImage } from "components/entities/EntityCard/components";
 
-import EditImg from "./images/edit.png";
-import RemoveImg from "./images/delete.png";
-import DiscardImg from "./images/discard.png";
-import AcceptImg from "./images/accept.png";
+import EditImg from "components/entities/EntityCard/images/edit.png";
+import RemoveImg from "components/entities/EntityCard/images/delete.png";
+import DiscardImg from "components/entities/EntityCard/images/discard.png";
+import AcceptImg from "components/entities/EntityCard/images/accept.png";
 
 export const ButtonInEditMode = ({ onAcceptClick, onDiscardClick, isDisableAccept }) => (
   <>

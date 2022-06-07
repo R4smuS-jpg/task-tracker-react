@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import useHandleChangeField from "../../utils/useHandleChangeField";
-import FormError from "../../utils/FormError";
+import useHandleChangeField from "components/input/utils/useHandleChangeField";
+import FormError from "components/input/utils/FormError";
 
-import { Wrapper, CreateBlock, Title, Form, StyledButton } from "./components";
-import InputField from "../../InputField";
+import { Wrapper, CreateBlock, Title, Form, StyledButton } from "components/entities/CreateEntityBlock/components";
+import InputField from "components/input/InputField/InputField";
 
 const INITIAL_FORM_STATE = { name: "", description: "" };
 
@@ -23,7 +23,7 @@ export default function CreateEntityBlock({ entity, handleLogoutClick, createReq
     <Wrapper>
       <CreateBlock>
         {error && <FormError>{error.message}</FormError>}
-        <Title>{`Create ${entity} form:`}</Title>
+        <Title>{`New Project: `}</Title>
         <Form>
           <InputField id="name" label="Name*" value={formState.name} onChange={handleEvents} onBlur={handleEvents} required />
           <InputField id="description" label="Description" value={formState.description} onChange={handleEvents} onBlur={handleEvents} />

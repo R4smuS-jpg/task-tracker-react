@@ -1,38 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
-import styled from "styled-components";
-
 import { useNavigate } from "react-router-dom";
-import useAuthUser from "../api/AuthUser";
-import signIn from "../api/mutations/signIn";
+
 import { useApolloClient } from "@apollo/client";
+import signIn from "api/mutations/signIn";
+import useAuthUser from "api/AuthUser";
 
-import InputField from "./InputField";
-import Button from "./Button";
+import InputField from "components/input/InputField/InputField";
 
-import validateEmail from "../validators/emailValidator.js";
-import validatePassword from "../validators/passwordValidator.js";
-
-// styles
-const SubmitButton = styled(Button)`
-  margin-top: 10px;
-
-  width: 4.5em;
-  height: 1.4em;
-
-  color: #484f4f;
-  background-color: white;
-
-  font-size: 32px;
-`;
-
-const P = styled.p`
-  font-size: 1.8em;
-  color: #c24641;
-`;
-
-const InputFieldWrap = styled.div`
-  margin-bottom: 10px;
-`;
+import validateEmail from "validators/emailValidator.js";
+import validatePassword from "validators/passwordValidator.js";
+import { InputFieldWrap, P, SubmitButton } from "components/input/SignInForm/components";
 
 const INITIAL_FORM_STATE = { email: "", password: "" };
 

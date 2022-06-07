@@ -1,4 +1,3 @@
-import Button from "components/Button";
 import styled from "styled-components";
 
 const defaultBorderRadius = "8px";
@@ -11,13 +10,6 @@ export const Wrapper = styled.div`
   margin-top: 1em;
 `;
 
-export const TasksButton = styled(Button)`
-  width: 4em;
-  margin-top: 0.5em;
-  color: #484f4f;
-  background-color: white;
-  font-size: 0.9em;
-`;
 
 export const Header = styled.div`
   display: flex;
@@ -40,6 +32,15 @@ export const ButtonWrapper = styled.div`
   > :nth-child(n):not(:last-child) {
     margin-right: 0.5em;
   }
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const InputTitle = styled.p`
+  font-color: white;
 `;
 
 export const Form = styled.form`

@@ -7,8 +7,8 @@ const useCreateTask = () => {
     refetchQueries: [{ query: getCurrentUser }],
   });
 
-  const create = async (name, description) => {
-    await mutation({ variables: { name, description } });
+  const create = async ( title, description, status, projectId) => {
+    await mutation({ variables: { title, description, status, projectId } });
   };
 
   return {

@@ -1,53 +1,19 @@
 import React, { useState, useCallback, useEffect } from "react";
-import styled from "styled-components";
-
-import Button from "./Button";
-import InputField from "./InputField";
-import signUp from "../api/mutations/signUp";
-
-import validateEmail from "../validators/emailValidator.js";
-import validatePassword from "../validators/passwordValidator.js";
-import validateFieldLength from "../validators/minLengthValidator.js";
-import validateAvatarUpload from "../validators/avatarUploadValidator.js";
-import { useApolloClient } from "@apollo/client";
-import useAuthUser from "../api/AuthUser";
 import { useNavigate } from "react-router-dom";
 
-// styles
-const SubmitButton = styled(Button)`
-  margin-top: 20px;
+import InputField from "components/input/InputField/InputField";
+import signUp from "api/mutations/signUp";
 
-  width: 4.5em;
-  height: 1.4em;
+import validateEmail from "validators/emailValidator.js";
+import validatePassword from "validators/passwordValidator.js";
+import validateFieldLength from "validators/minLengthValidator.js";
+import validateAvatarUpload from "validators/avatarUploadValidator.js";
 
-  color: #484f4f;
-  background-color: white;
+import { useApolloClient } from "@apollo/client";
+import useAuthUser from "api/AuthUser";
 
-  font-size: 32px;
-`;
-
-const P = styled.p`
-  font-size: 1.6em;
-  color: #f2284e;
-`;
-
-const AddAvatarButton = styled(InputField)`
-  font-size: 24px;
-  color: #484f4f;
-
-  width: 320px;
-
-  border: 2px solid #379683;
-  border-radius: 6px;
-`;
-
-const AddAvatarButtonWrap = styled.div`
-  padding-right: 176px;
-`;
-
-const InputFieldWrap = styled.div`
-  margin-bottom: 10px;
-`;
+import { InputFieldWrap } from "components/input/SignUpForm/components";
+import { AddAvatarButtonWrap, P, AddAvatarButton, SubmitButton } from "components/input/SignUpForm/components";
 
 const INITIAL_FORM_STATE = {
   email: "",

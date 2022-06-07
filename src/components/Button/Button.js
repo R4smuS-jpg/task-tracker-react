@@ -1,14 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const DefaultButton = styled.button`
-  cursor: pointer;
-
-  border: 3px solid #379683;
-  border-radius: 6px;
-
-  font: inherit;
-`;
+import { DefaultButton } from "components/Button/components";
 
 function Button({ form, type, img, onClick, children, className, disabled }) {
   return (
