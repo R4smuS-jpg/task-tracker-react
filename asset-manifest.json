@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/task-tracker-react/static/css/main.cf506294.css",
-    "main.js": "/task-tracker-react/static/js/main.23ed5a0b.js",
-    "static/media/accept.png": "/task-tracker-react/static/media/accept.af2a744f043c0183e3bc.png",
-    "static/media/pen.png": "/task-tracker-react/static/media/pen.5efc12721931f1588763.png",
-    "static/media/discard.png": "/task-tracker-react/static/media/discard.2fce6214b7c60c745aa6.png",
+    "main.js": "/task-tracker-react/static/js/main.dc83ca67.js",
+    "static/media/accept.png": "/task-tracker-react/static/media/accept.206c979ca3216e8a1ab0.png",
+    "static/media/discard.png": "/task-tracker-react/static/media/discard.b2e125a061a3806886a5.png",
+    "static/media/edit.png": "/task-tracker-react/static/media/edit.0a5a62faf70bf2e385bb.png",
     "index.html": "/task-tracker-react/index.html",
     "main.cf506294.css.map": "/task-tracker-react/static/css/main.cf506294.css.map",
-    "main.23ed5a0b.js.map": "/task-tracker-react/static/js/main.23ed5a0b.js.map"
+    "main.dc83ca67.js.map": "/task-tracker-react/static/js/main.dc83ca67.js.map"
   },
   "entrypoints": [
     "static/css/main.cf506294.css",
-    "static/js/main.23ed5a0b.js"
+    "static/js/main.dc83ca67.js"
   ]
 }
